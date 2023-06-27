@@ -1,6 +1,18 @@
 <?php
-    function reverseString(string $text): string {
-        $result = strrev($text);
-        return $result;     
+    const COLORS = array(
+        "black",
+        "brown",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "violet",
+        "grey",
+        "white"
+    );
+    function colorCode(string $color): int
+    {
+        return array_search($color, COLORS);
     }
 ?>
