@@ -1,18 +1,14 @@
 <?php
-    const COLORS = array(
-        "black",
-        "brown",
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "blue",
-        "violet",
-        "grey",
-        "white"
-    );
-    function colorCode(string $color): int
+    function distance(string $a, string $b): int
     {
-        return array_search($color, COLORS);
+        if (strlen($a) !== strlen($b)) {
+            throw new InvalidArgumentException('DNA strands must be of equal length.');
+        }
+        return count(
+            array_diff_assoc(
+                str_split($a),
+                str_split($b)
+            )
+        );
     }
 ?>
