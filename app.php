@@ -1,14 +1,7 @@
 <?php
-    function distance(string $a, string $b): int
+    function from(DateTimeImmutable $date): DateTimeImmutable
     {
-        if (strlen($a) !== strlen($b)) {
-            throw new InvalidArgumentException('DNA strands must be of equal length.');
-        }
-        return count(
-            array_diff_assoc(
-                str_split($a),
-                str_split($b)
-            )
-        );
+        $giga = 1e9; // = 1000000000
+        return $date->modify("+{$giga} seconds");
     }
 ?>
